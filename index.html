@@ -10,18 +10,10 @@
             position: relative;
    z-index: 1;
         }
-  .show_txt{  /*显示文字*/
-            margin:0 auto;
-            background-color: azure;
-   width: 370px;
-            height: 200px;
-            position: relative;
-   text-align: center;
-   padding-top: 10px;
-   z-index: 1;
-        }
+
 </style>
 </head>
+
 
 <body>
  <div class="process_gif" id="process"></div> 
@@ -33,7 +25,7 @@
  let divTyping = document.getElementById('content_1'); //通过id获取div节点
  let a = 0;
  timer = 0;
- str = "我们已经相遇 20 天<br>告白后过了 13 天<br>First Kiss 至今 5 天";
+ str = "我们已经相遇 375 天<br>告白后过了 367 天<br>First Kiss 至今 356 天<br>初次旅行至今 133 天";
  function typing () {
   if (a <= str.length) { # 从第一个字开始逐个打印
      divTyping.innerHTML = str.slice(0, a++) + '_';
@@ -45,5 +37,11 @@
   }
  }
  
- window.onload = typing;
+ window.onload=function(){
+   typing();
+   setTimeout(function(){
+             thisdiv = document.getElementById("process");
+    thisdiv.style.backgroundImage = "url('./process_stop.png')"; # 将div背景图替换
+        },2000); # 单位是毫秒，根据动态图的时长来设置
+ }
 </script>
